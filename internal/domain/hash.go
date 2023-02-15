@@ -5,8 +5,10 @@ import (
 	"time"
 )
 
-var ErrNilHash = errors.New("nil hash")
-var ErrExpired = errors.New("hash expired")
+var (
+	ErrNilHash = errors.New("nil hash")
+	ErrExpired = errors.New("hash expired")
+)
 
 type Hash struct {
 	Content   string

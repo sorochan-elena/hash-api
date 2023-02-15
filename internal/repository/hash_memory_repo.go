@@ -28,6 +28,7 @@ func (h *HashInMemoryRepository) Get(ctx context.Context) (domain.Hash, error) {
 	if h.hash == nil {
 		return domain.Hash{}, domain.ErrNilHash
 	}
+
 	if h.hash.Expired() {
 		return domain.Hash{}, domain.ErrExpired
 	}
@@ -46,5 +47,6 @@ func (h *HashInMemoryRepository) Store(ctx context.Context, hash domain.Hash) er
 	defer h.mx.Unlock()
 
 	h.hash = &hash
+
 	return nil
 }

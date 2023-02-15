@@ -10,7 +10,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"hash-api/internal/domain"
-	schema2 "hash-api/proto/gen/hash/schema"
+	"hash-api/proto/gen/hash/schema"
 	"log"
 	"net"
 	"time"
@@ -33,7 +33,7 @@ func NewServer(addr string, hashGetter hashGetter, opts ...grpc.ServerOption) *S
 		hashGetter: hashGetter,
 	}
 
-	schema2.RegisterHashApiServer(srv.server, srv)
+	schema.RegisterHashApiServer(srv.server, srv)
 
 	return srv
 }
@@ -52,10 +52,11 @@ func (s *Server) Start(ctx context.Context) error {
 
 	<-ctx.Done()
 	s.server.GracefulStop()
+
 	return nil
 }
 
-func (s *Server) Get(ctx context.Context, _ *emptypb.Empty) (*schema2.Hash, error) {
+func (s *Server) Get(ctx context.Context, _ *emptypb.Empty) (*schema.Hash, error) {
 	hash, err := s.hashGetter.Handle(ctx)
 	if err != nil {
 		return nil, status.Error(codes.Internal, err.Error())
@@ -67,7 +68,7 @@ func (s *Server) Get(ctx context.Context, _ *emptypb.Empty) (*schema2.Hash, erro
 		log.Printf("send header: %s", err)
 	}
 
-	return &schema2.Hash{
+	return &schema.Hash{
 		Hash:      hash.Content,
 		CreatedAt: timestamppb.New(hash.CreatedAt),
 	}, nil

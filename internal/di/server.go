@@ -37,6 +37,7 @@ func hashApiRepo(cfg config.App) *repository.HashApiRepository {
 	if err != nil {
 		log.Fatalf("dial: %s", err)
 	}
+
 	return repository.NewHashApiRepository(schema.NewHashApiClient(conn))
 }
 

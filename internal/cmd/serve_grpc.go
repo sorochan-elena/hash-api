@@ -32,6 +32,7 @@ func ServeGrpc() *cli.Command {
 				if err := s.Handle(ctx); err != nil {
 					log.Println("generator:", err)
 				}
+
 				log.Println("generator: stopped")
 				close(genDoneCh)
 			}(gen)
