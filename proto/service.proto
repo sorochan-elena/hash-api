@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "./hash/schema;schema";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+message Hash {
+  string hash = 1;
+  google.protobuf.Timestamp created_at = 2;
+}
+
+service HashApi {
+  rpc Get(google.protobuf.Empty) returns (Hash) {}
+}

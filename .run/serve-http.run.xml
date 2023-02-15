@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="serve-http" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="hash-api" />
+    <working_directory value="$PROJECT_DIR$" />
+    <parameters value="serve-http" />
+    <envs>
+      <env name="HTTP_ADDR" value=":8080" />
+      <env name="GRPC_ADDR" value=":5105" />
+    </envs>
+    <kind value="PACKAGE" />
+    <package value="hash-api" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$" />
+    <method v="2" />
+  </configuration>
+</component>

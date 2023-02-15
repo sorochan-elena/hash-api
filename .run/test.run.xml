@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test" type="GoTestRunConfiguration" factoryName="Go Test">
+    <module name="hash-api" />
+    <working_directory value="$PROJECT_DIR$" />
+    <parameters value="-race" />
+    <kind value="DIRECTORY" />
+    <package value="hash-api" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$" />
+    <framework value="gotest" />
+    <method v="2" />
+  </configuration>
+</component>
