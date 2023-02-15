@@ -11,7 +11,7 @@ go run . serve-grpc --grpc-addr :5105 --hash-ttl 5m
 
 #### Http Server
 ```bash
-go run . serve-grpc --http-addr :8081 --grpc-addr :5105
+go run . serve-http --http-addr :8081 --grpc-addr :5105
 ```
 
 #### Tests
